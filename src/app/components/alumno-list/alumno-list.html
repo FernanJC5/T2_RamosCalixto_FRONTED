@@ -1,0 +1,32 @@
+<h2>Listado de alumnos</h2>
+
+@if (error()) {
+  <p class="error">{{ error() }}</p>
+}
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombres</th>
+      <th>Carrera</th>
+      <th>Ciclo</th>
+      <th>Promedio</th>
+      <th>Estado académico</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (a of alumnos(); track a.id) {
+      <tr>
+        <td>{{ a.id }}</td>
+        <td>{{ a.nombres }}</td>
+        <td>{{ a.carrera }}</td>
+        <td>{{ a.ciclo }}</td>
+        <td>{{ a.promedio }}</td>
+        <td>{{ a.estadoAcademico }}</td>
+        <td><button (click)="eliminar(a.id)">Eliminar</button></td>
+      </tr>
+    }
+  </tbody>
+</table>
